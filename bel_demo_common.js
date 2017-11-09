@@ -299,6 +299,16 @@ $("#zoom_out").mouseup(function(event){
 	controls.zoom = 0;
 });
 
+$(document).bind('mousewheel', function(e){
+    if(e.originalEvent.wheelDelta /120 > 0) {
+        controls.zoom = -1;
+    }
+    else{
+        controls.zoom = 1;
+    }
+    setTimeout(function(){controls.zoom = 0;}, 200);
+});
+
 function run(){
 	$.ajax({
 			type: "GET",
